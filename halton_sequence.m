@@ -1,6 +1,6 @@
 function r = halton_sequence (i1,i2,m)
 
-%*****************************************************************************80
+%*****************************************************************************
 %
 %% halton_sequence() computes elements I1 through I2 of a Halton sequence.
 %

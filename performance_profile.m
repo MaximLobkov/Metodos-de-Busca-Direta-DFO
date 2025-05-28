@@ -12,7 +12,7 @@ rpsk = [];
 rpsv = [];
 Tpmin = [];
 
-%% Comparação via Iterações: %%
+% Comparação via Iterações: %
 for p = 1:20
   Tpmin(p,1) = min(Tps(p,:));
   for s = 1:3
@@ -28,7 +28,7 @@ endfor
 
 rpsk % Desempenho com Iterações %
 
-%% Função de Desempenho (número de iterações) de cada Algoritmo %%
+% Função de Desempenho (número de iterações) de cada Algoritmo %
 ro_s1 = @(alpha) (1/20)*sum(rpsk(:,1) <= alpha);
 ro_1 = ro_s1(alpha);
 
@@ -39,7 +39,7 @@ ro_s3 = @(alpha) (1/20)*sum(rpsk(:,3) <= alpha);
 ro_3 = ro_s3(alpha);
 
 
-%% Comparação via Avaliações de Função: %%
+% Comparação via Avaliações de Função: %
 for p = 1:20
   nfvalmin(p,1) = min(nfval(p,:));
   for s = 1:3
@@ -55,7 +55,7 @@ endfor
 
 rpsv % Desempenho com Avaliações de Função %
 
-%% Função de Desempenho (número de avaliações de função) de cada Algoritmo %%
+% Função de Desempenho (número de avaliações de função) de cada Algoritmo %
 rov_s1 = @(alpha) (1/20)*sum(rpsv(:,1) <= alpha);
 rov_1 = rov_s1(alpha);
 

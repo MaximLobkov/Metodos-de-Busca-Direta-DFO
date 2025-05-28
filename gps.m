@@ -3,16 +3,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [numitergps,nfvalsgps,vfgps] = gps(f,xk,delta,tau,tol,kmax)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ENTRADAS:                                                                                             %%
-%% f: função objetivo, xk: ponto inicial                                                                 %%
-%% delta: tamanho do passo inicial, tau: ajuste (valor em (0;1)), tol: critério de parada                %%
-%% G: matriz não singular, Z: matriz inteira com colunas que formam um CGP                               %%
-%% kmax: número máximo de iterações                                                                      %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENTRADAS:                                                                                             %
+% f: função objetivo, xk: ponto inicial                                                                 %
+% delta: tamanho do passo inicial, tau: ajuste (valor em (0;1)), tol: critério de parada                %
+% G: matriz não singular, Z: matriz inteira com colunas que formam um CGP                               %
+% kmax: número máximo de iterações                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   k = 0; % Iteração zero %
-  xfminsearch = fminsearch(f,xk); %% Solução do Problema usando o comando fminsearch para medir acurácia %%
+  xfminsearch = fminsearch(f,xk); % Solução do Problema usando o comando fminsearch para medir acurácia %
   fotim = f(xfminsearch); % Valor da função na Melhor Solução para medir acurácia do método %
   f0 = f(xk); % Avaliação para conferir a qualidade da solução %
   fa = f(xk); % Valor utilizado para medir decrescimento da função (muda a cada iteração) %
@@ -58,11 +58,11 @@ function [numitergps,nfvalsgps,vfgps] = gps(f,xk,delta,tau,tol,kmax)
 
 endwhile
 
-  %% Saídas: %%
-  xgps = xk; %% Solução do Problema gerada pelo Método GPS %%
-  vfgps = f(xgps); %% Valor da Função %%
+  %%% Saídas: %%%
+  xgps = xk; % Solução do Problema gerada pelo Método GPS %
+  vfgps = f(xgps); % Valor da Função %
   nfvalsgps = fvalgps;
-  numitergps = k; %% Número de Iterações usadas para obter a solução %%
-  fqualigps = (vfgps - f0)./(fotim - f0); %% Qualidade da solução obtida %%
+  numitergps = k; % Número de Iterações usadas para obter a solução %
+  fqualigps = (vfgps - f0)./(fotim - f0); % Qualidade da solução obtida %
 
 endfunction

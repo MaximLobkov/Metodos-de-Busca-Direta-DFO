@@ -3,12 +3,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [numitercs,nfvalscs,vfcs] = coordsearch(f,xk,delta,tol,kmax)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ENTRADAS:                                                %%
-%% f: função objetivo, xk: ponto inicial                    %%
-%% delta: tamanho do passo inicial, tol: critério de parada %%
-%% kmax: número máximo de iterações                         %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENTRADAS:                                                %
+% f: função objetivo, xk: ponto inicial                    %
+% delta: tamanho do passo inicial, tol: critério de parada %
+% kmax: número máximo de iterações                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   k = 0; % Iteração zero %
   xfminsearch = fminsearch(f,xk); % Solução do Problema usando o comando fminsearch para medir acurácia %
@@ -57,11 +57,11 @@ function [numitercs,nfvalscs,vfcs] = coordsearch(f,xk,delta,tol,kmax)
 
   endwhile
 
-  %% Saídas %%
-  xcs = xk; %% Solução do Problema gerada pelo Método CS %%
-  vfcs = f(xcs); %% Valor da Função %%
+  %%% Saídas %%%
+  xcs = xk; % Solução do Problema gerada pelo Método CS %
+  vfcs = f(xcs); % Valor da Função %
   nfvalscs = fvalcs;
-  numitercs = k; %% Número de Iterações usadas para obter a solução %%
-  fqualics = (vfcs - f0)./(fotim - f0); %% Qualidade da solução obtida %%
+  numitercs = k; % Número de Iterações usadas para obter a solução %
+  fqualics = (vfcs - f0)./(fotim - f0); % Qualidade da solução obtida %
 
 endfunction

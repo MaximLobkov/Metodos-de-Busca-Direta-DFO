@@ -3,19 +3,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [numitermads,nfvalsmads,vfmads] = mads(f,xk,deltap,tau,tol,kmax)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ENTRADAS:                                                                                             %%
-%% f: função objetivo, xk: ponto inicial                                                                 %%
-%% deltap: tamanho inicial do frame, tau: ajuste (valor em (0;1)), tol: critério de parada               %%                                              %%
-%% kmax: número máximo de iterações                                                                      %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENTRADAS:                                                                                             %
+% f: função objetivo, xk: ponto inicial                                                                 %
+% deltap: tamanho inicial do frame, tau: ajuste (valor em (0;1)), tol: critério de parada               %                                             
+% kmax: número máximo de iterações                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   k = 0; % Iteração zero %
   m = length(xk); % Dimensão do Problema %
   i1 = 1; % Índice do primeiro elemento da sequência de Halton %
   i2 = kmax; % Índice do último elemento da sequência de Halton %
 
-  xfminsearch = fminsearch(f,xk); %% Solução do Problema usando o comando fminsearch para medir acurácia %%
+  xfminsearch = fminsearch(f,xk); % Solução do Problema usando o comando fminsearch para medir acurácia %
   fotim = f(xfminsearch); % Valor da função na Melhor Solução para medir acurácia do método %
 
   f0 = f(xk); % Avaliação para conferir a qualidade da solução %
@@ -62,11 +62,11 @@ function [numitermads,nfvalsmads,vfmads] = mads(f,xk,deltap,tau,tol,kmax)
 
   endwhile
 
-  %% Saídas: %%
-  xmads = xk; %% Solução do Problema gerada pelo Método MADS %%
-  vfmads = f(xmads); %% Valor da Função %%
+  %%% Saídas: %%%
+  xmads = xk; % Solução do Problema gerada pelo Método MADS %
+  vfmads = f(xmads); % Valor da Função %
   nfvalsmads = fvalmads;
-  numitermads = k; %% Número de Iterações usadas para obter a solução %%
-  fqualimads = (vfmads - f0)./(fotim - f0); %% Qualidade da solução obtida %%
+  numitermads = k; % Número de Iterações usadas para obter a solução %
+  fqualimads = (vfmads - f0)./(fotim - f0); % Qualidade da solução obtida %
 
 endfunction

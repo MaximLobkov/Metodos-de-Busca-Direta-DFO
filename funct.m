@@ -3,14 +3,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [xk,xotim,f] = funct(p)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ENTRADAS:              %%
-%% p: número do problema  %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENTRADAS:              %
+% p: número do problema  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   m = 2; % Dimensão dos Problemas %
 
-  %% Funções %%
+  % Funções %
   if (p == 1) % Problema 1 %
     xk = [4.1;4.1];
     xotim = [pi;pi];

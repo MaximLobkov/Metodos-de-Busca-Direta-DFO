@@ -11,7 +11,7 @@ function [numitercs,nfvalscs,vfcs] = coordsearch(f,xk,delta,tol,kmax)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   k = 0; % Iteração zero %
-  xfminsearch = fminsearch(f,xk); %% Solução do Problema usando o comando fminsearch para medir acurácia %%
+  xfminsearch = fminsearch(f,xk); %% Solução do Problema usando o comando fminsearch para medir acurácia %
   n = length(xk); % Dimensão do problema %
   fotim = f(xfminsearch); % Valor da função na Melhor Solução para medir acurácia do método %
 

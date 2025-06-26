@@ -14,10 +14,12 @@ function [Dk] = hsd(k,deltap,deltam,i1,i2,m)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   Bk = [];
-  u = halton_sequence(i1,i2,m); % Sequência de Halton %
-  Hk = eye(m) - (2/(u(:,k)'*u(:,k)))*(u(:,k)*u(:,k)'); % Matriz de Householder associada %
+  uk = halton_sequence(i1,i2,m); % Sequência de Halton %
+  u = uk(:,k)/norm(uk(:,k)); % Vetores unitários %
 
-  % Ajuste da Matriz de Householder %
+  Hk = eye(m) - 2*(u*u'); % Matriz de Householder associada %
+
+  %% Ajuste da Matriz de Householder %%
   for j = 1:length(Hk)
     Bk(:,j) = round((deltap/deltam)*(Hk(:,j)./norm(Hk(:,j))));
   endfor

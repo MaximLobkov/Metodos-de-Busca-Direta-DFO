@@ -4,7 +4,11 @@
 clear all; close all;
 alphamax = 5;
 alpha = [1:0.1:alphamax];
-crit = 10^(-1); % Precisão %
+
+% Precisão %
+crit = 10^(-1); 
+%crit = 10^(-3);
+%crit = 10^(-5);
 
 [Tp,fquali,nfval] = matriz_pp % Matriz com o número de iterações de cada problema %
 Tps = Tp(:,2:end);

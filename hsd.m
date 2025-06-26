@@ -19,7 +19,7 @@ function [Dk] = hsd(k,deltap,deltam,i1,i2,m)
 
   Hk = eye(m) - 2*(u*u'); % Matriz de Householder associada %
 
-  %% Ajuste da Matriz de Householder %%
+  % Ajuste da Matriz de Householder %
   for j = 1:length(Hk)
     Bk(:,j) = round((deltap/deltam)*(Hk(:,j)./norm(Hk(:,j))));
   endfor
